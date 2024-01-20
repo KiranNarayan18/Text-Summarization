@@ -4,7 +4,8 @@ from textSummarizer.entity import (DataIngestionConfig,
                                    DataValidationConfig,
                                    DataTransformationConfig,
                                    ModelTrainerConfig,
-                                   ModelEvaluationConfig)
+                                   ModelEvaluationConfig,
+                                   PredictionConfig)
 
 
 class ConfigurationManager:
@@ -102,3 +103,13 @@ class ConfigurationManager:
 
         return model_evaluation_config
     
+
+    def get_model_predictions_config(self) -> PredictionConfig:
+        config = self.config.model_prediction
+
+        model_prediction_config = PredictionConfig(
+            tokenizer_path = config.tokenizer_path,
+            model_path = config.model_path
+        )
+        
+        return model_prediction_config
