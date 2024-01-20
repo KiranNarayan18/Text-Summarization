@@ -22,7 +22,6 @@ class DataTransformationConfig:
     tokenizer_name: Path
 
 
-
 @dataclass(frozen=True)
 class ModelTrainerConfig:
     root_dir: Path
@@ -37,3 +36,12 @@ class ModelTrainerConfig:
     eval_steps: int
     save_steps: float
     gradient_accumulation_steps: int
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    tokenizer_path: Path
+    metric_file_name: Path
